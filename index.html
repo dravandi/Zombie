@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style/Style.css">
+
+
+
+
+</head>
+
+<body>
+
+
+
+    <center>
+        <h1>Score: <span id="score">0</span></h1>
+    </center>
+    <center><button><a href="ZombieHunter.html"
+                class="button">End Game</a></button></center>
+    <img id="Dog" src="images/Zombie-cartoon-1.jpg"
+        onclick=score(),kill()>
+    <script>
+
+        let currentScore = 0;
+        let sound = new Audio("MP5_SMG-GunGuru-703432894.mp3");
+
+        function kill() {
+
+            document.getElementById('Dog').src = "images/dd28a9cc255253f2aa3a0fe9f825455a.jpg"
+            sound.play();
+
+        }
+
+
+        function zombieTransport() {
+            let width = window.innerWidth - 300
+            let height = window.innerHeight - 300
+
+            let a = Math.floor((Math.random() * height) + 1);
+            let b = Math.floor((Math.random() * width) + 1);
+            document.getElementById('Dog').style.top = a + "px";
+            document.getElementById('Dog').style.left = b + "px";
+            document.getElementById('Dog').style.position = 'absolute';
+            document.getElementById('Dog').src = "images/Zombie-cartoon-1.jpg"
+
+        }
+
+        setInterval(function () { zombieTransport(); }, 2000);
+
+
+        function score() {
+            currentScore += 1;
+            document.getElementById("score").innerHTML = currentScore;
+
+
+
+        }
+
+        
+
+    </script>
+
+
+</body>
+
+</html>
