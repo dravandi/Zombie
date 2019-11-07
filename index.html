@@ -18,21 +18,32 @@
     <center>
         <h1>Score: <span id="score">0</span></h1>
     </center>
-    <center><button><a href="index.html"
-                class="button">End Game</a></button></center>
-    <img id="Dog" src="images/Zombie-cartoon-1.jpg"
-        onclick=score(),kill()>
+    <center><button><a href="ZombieHunter.html" class="button">End Game</a></button></center>
+    <img id="Dog" src="images/Zombie-cartoon-1.jpg" onclick=score(),killZombieOne()>
+
+    <img id="Zombie2" src="images/Zombie-cartoon-1.jpg" onclick=score(),killZombieTwo()>
     <script>
 
         let currentScore = 0;
         let sound = new Audio("audio/MP5_SMG-GunGuru-703432894.mp3");
 
-        function kill() {
+        function killZombieOne() {
 
-            document.getElementById('Dog').src = "images/dd28a9cc255253f2aa3a0fe9f825455a.jpg"
+            document.getElementById('Dog').src = "images/3iCN.gif"
             sound.play();
+            
 
         }
+
+        function killZombieTwo() {
+
+
+            document.getElementById('Zombie2').src = "images/3iCN.gif"
+            sound.play();
+            
+
+        }
+
 
 
         function zombieTransport() {
@@ -46,10 +57,17 @@
             document.getElementById('Dog').style.position = 'absolute';
             document.getElementById('Dog').src = "images/Zombie-cartoon-1.jpg"
 
+
+            let c = Math.floor((Math.random() * height) + 1);
+            let d = Math.floor((Math.random() * width) + 1);
+            document.getElementById('Zombie2').style.top = c + "px";
+            document.getElementById('Zombie2').style.left = d + "px";
+            document.getElementById('Zombie2').style.position = 'absolute';
+            document.getElementById('Zombie2').src = "images/Zombie-cartoon-1.jpg"
         }
 
         setInterval(function () { zombieTransport(); }, 2000);
-
+        setInterval(function () { zombieTransport(); }, 2000);
 
         function score() {
             currentScore += 1;
@@ -59,7 +77,7 @@
 
         }
 
-        
+
 
     </script>
 
