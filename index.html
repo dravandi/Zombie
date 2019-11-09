@@ -12,26 +12,50 @@
 </head>
 
 <body>
-ZombieHunter.html
 
 
-    <center>
+
+    
         <h1>Score: <span id="score">0</span></h1>
-    </center>
-    <center><button><a href="https://dravandi.github.io/Zombie/" class="button">End Game</a></button></center>
-    <img id="Dog" src="images/Zombie-cartoon-1.jpg" onclick=score(),killZombieOne()>
+    
+<button id="end" class="button" onclick=endGame()>End Game</button>
+    <img id="Dog" src="images/Zombie-cartoon-1.jpg" onclick=changeScore(),killZombieOne()>
 
-    <img id="Zombie2" src="images/Zombie-cartoon-1.jpg" onclick=score(),killZombieTwo()>
+    <img id="Zombie2" src="images/Zombie-cartoon-1.jpg" onclick=changeScore(),killZombieTwo()>
     <script>
+        function center() {
+            let width = window.innerWidth
+            let height = window.innerHeight
+            document.getElementById("score").innerHTML = 0;
+            document.getElementById('Dog').style.left = ((width / 2) - 50) + "px"
+            document.getElementById('Dog').style.top = ((height / 2) - 50) + "px"
+            document.getElementById('Zombie2').style.left = ((width / 2) - 100) + "px"
+            document.getElementById('Zombie2').style.top = ((height / 2) - 200) + "px"
+
+        }
+        center();
 
         let currentScore = 0;
         let sound = new Audio("audio/MP5_SMG-GunGuru-703432894.mp3");
+
+
+        function endGame() {
+            let width = window.innerWidth
+            let height = window.innerHeight
+            currentScore = 0;
+            document.getElementById("score").innerHTML = currentScore;
+            document.getElementById('Dog').style.left = ((width / 2) - 50) + "px"
+            document.getElementById('Dog').style.top = ((height / 2) - 50) + "px"
+            document.getElementById('Zombie2').style.left = ((width / 2) - 100) + "px"
+            document.getElementById('Zombie2').style.top = ((height / 2) - 200) + "px"
+            center();
+        }
 
         function killZombieOne() {
 
             document.getElementById('Dog').src = "images/3iCN.gif"
             sound.play();
-            
+
 
         }
 
@@ -40,7 +64,7 @@ ZombieHunter.html
 
             document.getElementById('Zombie2').src = "images/3iCN.gif"
             sound.play();
-            
+
 
         }
 
@@ -69,13 +93,15 @@ ZombieHunter.html
         setInterval(function () { zombieTransport(); }, 2000);
         setInterval(function () { zombieTransport(); }, 2000);
 
-        function score() {
+        function changeScore() {
             currentScore += 1;
             document.getElementById("score").innerHTML = currentScore;
 
 
 
         }
+
+
 
 
 
